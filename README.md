@@ -4,19 +4,6 @@
 
 | Product/Service                              | Assessment guide                                                                                         |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Azure Automation                             | [Azure Automate credential assessment](/azure-automate-credential-assessment-guide.md)                   |
-| Azure Migrate                                | [Azure Migrate credential assessment](/azure-migrate-credential-assessment-guide.md)                     |
-| Azure Site Recovery                          | [Azure Site Recovery credential assessment](/azure-siterecovery-credential-assessment-guide.md)          |
-| Azure AD Applications and Service principals | [Azure AD Application/Service principal assessment](/azuread-application-credential-assessment-guide.md) |
-
-## Remediation
-
-| Product/Service                              | Remediation guide                                                                                          |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| Azure Automation                             | [Azure Automate credential remediation](/azure-automate-credential-remediation-guide.md)                   |
-| Azure Migrate                                | [Azure Migrate credential remediation](/azure-migrate-credential-remediation-guide.md)                     |
-| Azure Site Recovery                          | [Azure Site Recovery credential remediation](/azure-siterecovery-credential-remediation-guide.md)          |
-| Azure AD Applications and Service principals | [Azure AD Application/Service principal remediation](/azuread-application-credential-remediation-guide.md) |
 
 ## Contributing
 
