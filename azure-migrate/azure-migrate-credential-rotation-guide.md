@@ -148,11 +148,7 @@ After assessing the impacted Azure AD applications, you need to **execute the mi
 
 If case of any issues during the execution of the above scripts, request assistance from Microsoft support. While creating support request follow the steps below:
 
-<<<<<<< HEAD
 1.	In the 'Summary' field, provide the details as follows: "CVE-2021-42306: \<Issue summary>"
-=======
-1.	In the 'Summary' field, provide the details as follows: "[CVE-2021-42306](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-42306) : Issue summary"
->>>>>>> a8eb022a9718424bc7158e8a8191122c5534a012
 1. Problem type: “Discovery and assessment”
 1. Problem subtype: _any one of the following_
    -  Deployment issues with Azure Migrate appliance for VMware

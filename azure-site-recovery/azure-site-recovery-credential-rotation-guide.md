@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Azure Site Recovery application credential rotation guide
-=======
-# Azure Migrate application credential rotation guide
->>>>>>> a8eb022a9718424bc7158e8a8191122c5534a012
 
 ## Disclaimer
 
@@ -41,15 +37,9 @@ Follow the remediation steps below only if you are using or previously used the 
 7. Navigate to the directory where the script is downloaded and then execute the script by running the following command: **`.\AadCertRollover.ps1`**
 8. When prompted, log in with your Azure user account. The user account should have permissions listed in Step#1 of Option#2.
 9.  Wait for the script to get successfully executed. If you run into an error, please request assistance from Microsoft support by logging a case. Please use the phrase [AAD app cert rollover] in the issue summary and choose the following options:
-<<<<<<< HEAD
-    1. Service type: Azure Site Recovery
-    2. Problem type: I need help with the on-prem components used as part of Site Recovery
-    3. Problem subtype: I need help with ASR replication appliance or Configuration server
-=======
    1. Service type: Azure Site Recovery
    2. Problem type: I need help with the on-prem components used as part of Site Recovery
    3. Problem subtype: I need help with ASR replication appliance or Configuration server 
->>>>>>> a8eb022a9718424bc7158e8a8191122c5534a012
 10. In case you do not have any VMs protected or in the process of being protected, you can skip the below steps.
 11. On successful completion of the AadCertRollover.ps1, please wait for 12 hours before we start execution of phase 2 of the mitigation.
 12. Upgrade appliance components by following steps illustrated in [Upgrade Mobility Service and appliance components - preview - Azure Site Recovery | Microsoft Docs](https://docs.microsoft.com/en-us/azure/site-recovery/upgrade-mobility-service-preview#upgrade-appliance)
