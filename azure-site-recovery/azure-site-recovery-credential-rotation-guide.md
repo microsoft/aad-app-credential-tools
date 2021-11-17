@@ -1,4 +1,4 @@
-# Azure Migrate application credential rotation guide
+# Azure Site Recovery application credential rotation guide
 
 ## Disclaimer
 
