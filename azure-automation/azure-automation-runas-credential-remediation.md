@@ -1,5 +1,11 @@
 # Azure Automation application credential assessment and remediation guidance
 
+## Disclaimer
+
+Guidance in this document applies only in relation to the mitigation steps necessary for the issue disclosed in the [CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-42306) and detailed in [Microsoft Security Response Center blog](https://aka.ms/CVE-2021-42306-AAD). Do not use this guidance as general credential rotation procedure.
+
+## Overview
+
 If you are using Azure Automation’s Self signed certificate for automation run-as accounts created and not renewed between 10/15/2020 and 10/15/2021, please run the script [here](https://aka.ms/azure-automation-runas-cred-roll) using the App Id parameter from the csv attached to the email you received. Please do not run the script without the App Id parameter.
 
 If using your own certificate in Azure Automation, take steps to [renew your certificate](https://docs.microsoft.com/en-us/azure/automation/manage-runas-account?WT.mc_id=Portal-Microsoft_Azure_Automation#renew-an-enterprise-or-third-party-certificate)  and remove the previous certificate used in the Azure AD Application as a precautionary measure regardless of the last renewed date.

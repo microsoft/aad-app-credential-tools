@@ -1,5 +1,9 @@
 # Credential health assessment and update procedures for Azure AD applications and service principals
 
+## Disclaimer
+
+Guidance in this document applies only in relation to the mitigation steps necessary for the issue disclosed in the [CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-42306) and detailed in [Microsoft Security Response Center blog](https://aka.ms/CVE-2021-42306-AAD). Do not use this guidance as general credential rotation procedure.
+
 ## Assessment
 
 There are a few ways by which you can find if the credential(s) on your application or service principal need to be rotated.

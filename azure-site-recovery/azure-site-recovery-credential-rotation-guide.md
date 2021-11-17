@@ -1,5 +1,11 @@
 # Azure Migrate application credential rotation guide
 
+## Disclaimer
+
+Guidance in this document applies only in relation to the mitigation steps necessary for the issue disclosed in the [CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-42306) and detailed in [Microsoft Security Response Center blog](https://aka.ms/CVE-2021-42306-AAD). Do not use this guidance as general credential rotation procedure.
+
+## Overview
+
 Follow the remediation steps below only if you are using or previously used the [preview version of VMware to Azure DR experience in ASR](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-azure-architecture-preview) which was [launched](https://azure.microsoft.com/en-us/updates/vmware-dr-preview-with-asr/) on Aug 30, 2021. For any other Azure Site Recovery users and/or scenarios, there is no further action needed.
 
 ## Remediation steps
