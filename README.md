@@ -1,27 +1,28 @@
-# Credential health assessment and update procedures for Azure AD applications and service principals
+# Credential health assessment and update procedures for Azure Automation, Azure Migrate, Azure Site Recovery and Azure AD applications
 
-## Assessment
+The following doc walks through various options and process of assessment and rotation of keyCredentials (certificates) for applications and service principal objects (Apps/SPs) created by services such as Azure Automation, Azure Migrate, Azure Site Recovery. Applications created via other mechanisms might need to rotate their credentials if your tenant admin identified a credential on your application as needing attention.
 
-There are a few ways by which you can find if the credential(s) on your application or service principal need to be rotated.
+Azure AD application needing credential rotation could have been created by `Azure Automation Service`, `Azure Migrate Service`, `Azure Site Recovery` or manually using the Azure portal.
+To pick the right remediation guidance, you must pick the assessment script for the one of these services. If one or more of these services are used in your organization, you will need to run through the assessment script for each of the services.  This will ensure you are able to pick the right guidance and avoid downtime for your app/service.
+The following table can help identify the type of service that created the Azure AD application.
 
-| **Assessment method**                             | **Credential assessment guide**                                                                                   |
+| Service type                                | Ways to identify app association                                                                                                                                                    |
+| -------------------------| ------------------------------------------------------------------------------------------------------------------------------------ |
+| Azure Automation Service | For Automation, the signInUrl in manifest has the URL to automation account which signifies the application is associated with an Automation account.|
+| Azure Migrate Service    | The names Azure AD applications associated with Azure Migrate contain one of the following suffixes: `resourceaccessaadapp`,`agentauthaadapp`,`authandaccessaadapp` |
+| Azure Site Recovery      | For Site Recovery, Azure AD app would have one of the following suffix - `authandaccessaadapp`, `marsauthaadapp`, `failbackagentauthaadapp`, `discoveryauthaadapp`  |
+
+> [!Note]
+> For Azure AD applications or service principals not created by one of the above services, following the assessment and remediation guide for Azure AD applications and Service principals listed below.
+
+## Assessment and remediation
+
+| Product/Service                              | Assessment guide                                                                                         |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| KeyCredential assessment using MS Graph API  (recommended)               | [Application credential assessment using MS Graph API](azuread-application-credential-assessment-msgraph-guide.md)                   |
-| KeyCredential assessment PowerShell module for MS Graph API               | [Application credential assessment PowerShell module](azuread-application-credential-assessment-powershell-guide.md)                   |
-| Azure Sentinel (license required)                | [Application credential assessment using Azure Sentinel notebook](azuread-application-credential-assessment-sentinel-guide.md)                   |
-
-## Remediation
-
-Application or service principal credentials can be rotated using one of the following options.
-You may use any one of the 3 options but ensure that you follow the steps as described for each option to avoid any downtime.
-The steps detailed below will help you add a new credential to the application object and remove instances of previous credentials identified by the key cred scanner tool.
-If the credential that needs to be rotated is expired, you can skip the steps to add a certificate and jump to the certificate removal section.
-
-| **Rotation method**                             | **Credential rotation guide**                                                                                   |
-| -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Azure AD Toolkit for applications and service principals (recommended)               | [Application credential rotation using Azure AD Toolkit](azuread-application-credential-rotation-azuread-toolkit-guide.md)                   |
-| MS Graph application and service principal APIs                 | [Application credential rotation using MS Graph API](azuread-application-credential-rotation-msgraph-guide.md)                   |
-| Azure portal (for application object only)                 | [Application only credential rotation using Azure portal](azuread-application-only-credential-rotation-azure-portal-guide.md)                   |
+| Azure Automation                             | [Azure Automate credential assessment and remediation guidance](/azure-automation/azure-automation-runas-credential-remediation.md)                   |
+| Azure Migrate                                | [Azure Migrate credential assessment and remediation guide](/azure-migrate/azure-migrate-credential-rotation-guide.md)                     |
+| Azure Site Recovery                          | [Azure Site Recovery credential assessment and remediation guide](/azure-site-recovery/azure-site-recovery-credential-rotation-guide.md)          |
+| Azure AD Applications and Service principals | [Azure AD Application/Service principal assessment and remediation guide](/azuread/azuread-app-credential-remediation-guide.md) |
 
 ## Contributing
 

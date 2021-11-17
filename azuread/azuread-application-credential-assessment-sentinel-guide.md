@@ -1,6 +1,8 @@
-# Azure Sentinel notebook
+# Azure Sentinel
 
-Microsoft Sentinel team has a notebook **<Link>** that will help identify the applications/service principals and their credentials that need rotation. The notebook uses the key credential property of the Microsoft Graph API to find the AppId’s in a tenant and adds them to a watchlist in Microsoft Sentinel. It then references the generated watchlist to look for anomalous Service Principal logins as well as potentially malicious activities by the impacted apps. Additional context for suspicious IP addresses that are surfaced in the queries is provided using the  `msticpy` package.  In addition to the notebooks, customers can also find the apps requiring credential rollover using Microsoft Sentinel playbook **<LINK>**.
+Microsoft Sentinel team has a [notebook](https://aka.ms/Clementine/notebook) that will help identify the applications/service principals and their credentials that need rotation. The notebook uses the key credential property of the Microsoft Graph API to find the AppId’s in a tenant and adds them to a watchlist in Microsoft Sentinel. It then references the generated watchlist to look for anomalous Service Principal logins as well as potentially malicious activities by the impacted apps. 
+
+Additional context for suspicious IP addresses that are surfaced in the queries is provided using the  `msticpy` package.  In addition to the notebooks, customers can also find the apps requiring credential rollover using Microsoft Sentinel [playbook](https://aka.ms/Clementine/playbook).
 
 If you are ingesting AAD Audit/AzureActivity logs in your Microsoft Sentinel instance you can try looking for potential malicious activity involving the impacted apps. For hunting purposes, we can use the AppId’s in the generated watchlist above and look for possible anomalous Service Principal logins using location as a pivot (below query). Generally speaking, a lot of the Service principal logging usually happens from a few known locations/IP ranges – this might be a known IP address range for Azure or from an known IP range/location of an on-premises datacenter. We try to use this as a hunting logic in the below query. Results of IP/Location based hunting queries can sometimes be noisy and hence environment-based specifics needs to be factored in when using the results in an investigation.
 
@@ -21,7 +23,11 @@ AADServicePrincipalSignInLogs
 | extend LocationDetails = todynamic(LocationDetails)
 | where isnotempty(tostring(LocationDetails["city"]))
 | extend Locale = strcat(tostring(LocationDetails["city"]), '|', tostring(LocationDetails['state']), '|', tostring(LocationDetails['countryOrRegion']))
-| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), make_set(IPAddress), dcount(IPAddress), make_set(ServicePrincipalId), make_set(Locale), dcount(Locale) by AppId, ResourceDisplayName, ServicePrincipalName, ResourceIdentity
+| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), 
+make_set(IPAddress), dcount(IPAddress), 
+make_set(ServicePrincipalId), make_set(Locale), 
+dcount(Locale) by AppId, ResourceDisplayName, 
+ServicePrincipalName, ResourceIdentity
 ```
  The IP addresses/ AppId’s surfaced from the above query should be verified if they look anomalous considering the specifics of the environment. The interesting IP/AppId can be used in the queries below to find additional activities using the AzureActivity logs and AuditLogs. While AzureActivity logs provides insight into subscription-level events like when a resource is modified or when a virtual machine is started etc. the AuditLogs provide information about user and group management, managed applications and directory activities that happened from suspicious IP’s.
 
@@ -44,7 +50,13 @@ AADServicePrincipalSignInLogs
 | extend uti = base64_decode_toguid(uti)
 | extend Id = tostring(uti)
 ) on Id, AppId, $left.IPAddress == $right.CallerIpAddress
-| project TimeInActivityLog = TimeGenerated, TimeInSPNLog = TimeGenerated1, ResourceGroup, ServicePrincipalId, ServicePrincipalName, OperationNameValue, IPAddress,AppId, ResourceDisplayName, activityResource = tostring(Claims_d.aud), tostring(parse_json(Authorization).evidence.role), _ResourceId, LocationDetails, Properties_d, ResourceGroupActivityLog = ResourceGroup1, SubscriptionId,Id
+| project TimeInActivityLog = TimeGenerated, TimeInSPNLog = TimeGenerated1, 
+ResourceGroup, ServicePrincipalId, ServicePrincipalName, 
+OperationNameValue, IPAddress,AppId, ResourceDisplayName, 
+activityResource = tostring(Claims_d.aud), 
+tostring(parse_json(Authorization).evidence.role), _ResourceId, 
+LocationDetails, Properties_d, 
+ResourceGroupActivityLog = ResourceGroup1, SubscriptionId,Id
 ```
 
 ```sql
