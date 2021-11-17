@@ -10,7 +10,7 @@ The following table can help identify the type of service that created the Azure
 | -------------------------| ------------------------------------------------------------------------------------------------------------------------------------ |
 | Azure Automation Service | For Automation, the signInUrl in manifest has the URL to automation account which signifies the application is associated with an Automation account. You can find your application manifest under the App registration section in Azure portal.|
 | Azure Migrate Service    | Under the App registration section in Azure AD portal, the applications associated with Azure Migrate contain one of the following suffixes: `resourceaccessaadapp`,`agentauthaadapp`,`authandaccessaadapp` |
-| Azure Site Recovery      | For Site Recovery, applications in Azure portal under the App registration section Azure AD app would have one of the following suffix - `authandaccessaadapp`, `marsauthaadapp`, `failbackagentauthaadapp`, `discoveryauthaadapp`  |
+| Azure Site Recovery      | For Site Recovery, applications in Azure portal under the App registration section Azure AD app would have one of the following suffix - `agentauthaadapp`, `marsauthaadapp`, `failbackagentauthaadapp`, `discoveryauthaadapp`  |
 
 > [!Note]
 > For Azure AD applications or service principals not created by one of the above services, following the assessment and remediation guide for Azure AD applications and Service principals listed below.
