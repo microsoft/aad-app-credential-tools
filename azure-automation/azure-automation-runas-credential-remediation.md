@@ -4,9 +4,14 @@
 
 Guidance in this document applies only in relation to the mitigation steps necessary for the issue disclosed in the [CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-42306) and detailed in [Microsoft Security Response Center blog](https://aka.ms/CVE-2021-42306-AAD). Do not use this guidance as general credential rotation procedure.
 
-This issue can be mitigated manually or by using the automated remediation script.  
+This issue can be mitigated manually or by using the automated remediation script. This document is organized in the following sections :
 
-## Manual Mitigation High Level Steps   
+1. [Manual Mitigation Steps](#Manual-Mitigation-Steps)
+2. [Automated Remediation Script](#Automated-Remediation-Script)
+3. [Frequently Asked Questions](#Frequently-asked-questions)
+
+
+## Manual Mitigation Steps   
 
   1. Verify an appropriate user that has the required permissions to carry out the remediation steps. 
   2. Identify a suitable time when no Automation Runbooks will be running and none are scheduled to be running at which to run the remediation.  
@@ -16,7 +21,7 @@ This issue can be mitigated manually or by using the automated remediation scrip
   6. Import the new certificates to the Hybrid Runbook Workers (HRWs) which use Run As Account authentication. 
   7. Confirm that any jobs running when the renewal took place are now complete and delete the old certificate from the Azure Active Directory(AD) Application. 
 
-### Detailed Manual Mitigation Steps
+### Step by step guide
 
 1. Identify the impacted Automation Accounts.
     1. The easiest way to identify the impacted Automation Accounts is using the provided Automation script. It will identify the impacted Automation accounts and then prompts you whether to remediate each discovered account in turn.
