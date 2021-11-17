@@ -6,9 +6,9 @@ Guidance in this document applies only in relation to the mitigation steps neces
 
 ## What actions am I required to take?
 
-Azure Migrate appliances that were registered after **11/02/2021 9:55 AM UTC** and had [Appliance configuration manager version 6.1.220.1 and above](/azure/migrate/migrate-appliance#check-the-appliance-services-version) are **not** impacted and do **not** require further action.
+Azure Migrate appliances that were registered after **11/02/2021 9:55 AM UTC** and had [Appliance configuration manager version 6.1.220.1 and above](https://docs.microsoft.com/azure/migrate/migrate-appliance#check-the-appliance-services-version) are **not** impacted and do **not** require further action.
 
-For Azure Migrate appliances registered prior to 11/02/2021 9:55 AM UTC or appliances where [auto-update was disabled](/azure/migrate/migrate-appliance#turn-off-auto-update) and registered after 11/02/2021 9:55 AM UTC, we recommend you execute the assessment script mentioned below to identify any impacted Azure AD applications and then perform the mitigation steps.
+For Azure Migrate appliances registered prior to 11/02/2021 9:55 AM UTC or appliances where [auto-update was disabled](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-upgrades) and registered after 11/02/2021 9:55 AM UTC, we recommend you execute the assessment script mentioned below to identify any impacted Azure AD applications and then perform the mitigation steps.
 
 ## Assessment script
 
@@ -17,7 +17,7 @@ The assessment script can help identify any impacted Azure AD applications assoc
 > [!NOTE]
 >  You can run the script from any Windows server with internet connectivity.
 
-### Prerequisites
+### Assessment script prerequisites
 
 1. Windows PowerShell version 5.1 or later installed.
 1. .NET framework 4.7.2 or later installed.
@@ -49,7 +49,7 @@ The assessment script can help identify any impacted Azure AD applications assoc
 1. Download the .zip file with [assessment script](https://aka.ms/azuremigrateimpactassessment) on the server.
 1. Extract the contents from the .zip file and open Windows PowerShell as an Administrator.
 1. Change the folder path to the location where the file was extracted.
-1. Execute the script by running the following command _(see how to find the Tenant ID [here](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant))_:
+1. Execute the script by running the following command _(see how to find the Tenant ID [here](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant))_:
 
    `.\AssessAzMigrateApps.ps1 -TenantId <provide your tenant ID> -ScanAll`
 
@@ -98,14 +98,14 @@ Based on the information you have from the script in the context of the currentl
 
 ## Mitigation script
 
-After assessing the impacted Azure AD applications, you need to **execute the mitigation script on each Azure Migrate appliance in your organization's environment**. You can check if you have Azure Migrate appliances in your environment from [here](/azure/migrate/common-questions-appliance#how-do-i-find-the-azure-migrate-appliances-registered-to-the-project). Before executing the script, ensure you have met the following prerequisites:
+After assessing the impacted Azure AD applications, you need to **execute the mitigation script on each Azure Migrate appliance in your organization's environment**. You can check if you have Azure Migrate appliances in your environment from [here](https://docs.microsoft.com/azure/migrate/common-questions-appliance#how-do-i-find-the-azure-migrate-appliances-registered-to-the-project). Before executing the script, ensure you have met the following prerequisites:
 
-### Prerequisites
+### Mitigation script prerequisites
 
 1. Windows PowerShell version 5.1 or later installed
 1. Windows PowerShell running 64-bit version
 1. .NET framework 4.7.2 or later installed.
-1. The following URLs accessible from the server (In addition to the other [URLs](/azure/migrate/migrate-appliance#public-cloud-urls) you have already whitelisted for the appliance registration):
+1. The following URLs accessible from the server (In addition to the other [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#public-cloud-urls) you have already whitelisted for the appliance registration):
    **Azure public cloud URLs
    -  *.powershellgallery.com
    -  *.azureedge.net
