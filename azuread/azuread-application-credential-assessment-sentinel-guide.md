@@ -1,8 +1,7 @@
 # Azure Sentinel
 
-Microsoft Sentinel team has a [notebook](https://aka.ms/Clementine/notebook) that will help identify the applications/service principals and their credentials that need rotation. The notebook uses the key credential property of the Microsoft Graph API to find the AppId’s in a tenant and adds them to a watchlist in Microsoft Sentinel. It then references the generated watchlist to look for anomalous Service Principal logins as well as potentially malicious activities by the impacted apps. 
-
-Additional context for suspicious IP addresses that are surfaced in the queries is provided using the  `msticpy` package.  In addition to the notebooks, customers can also find the apps requiring credential rollover using Microsoft Sentinel [playbook](https://aka.ms/Clementine/playbook).
+Microsoft Sentinel team has a [notebook](https://aka.ms/Clementine/notebook) that will help identify the applications/service principals and their credentials that need rotation. The notebook uses the key credential property of the Microsoft Graph API to find the AppId’s in a tenant and adds them to a watchlist in Microsoft Sentinel.
+In addition to the notebooks, customers can also find the apps requiring credential rollover using Microsoft Sentinel [playbook](https://aka.ms/Clementine/playbook).
 
 If you are ingesting AAD Audit/AzureActivity logs in your Microsoft Sentinel instance you can try looking for potential malicious activity involving the impacted apps. For hunting purposes, we can use the AppId’s in the generated watchlist above and look for possible anomalous Service Principal logins using location as a pivot (below query). Generally speaking, a lot of the Service principal logging usually happens from a few known locations/IP ranges – this might be a known IP address range for Azure or from an known IP range/location of an on-premises datacenter. We try to use this as a hunting logic in the below query. Results of IP/Location based hunting queries can sometimes be noisy and hence environment-based specifics needs to be factored in when using the results in an investigation.
 
