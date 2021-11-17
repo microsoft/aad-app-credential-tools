@@ -71,7 +71,7 @@ This issue can be mitigated manually or by using the automated remediation scrip
 
 ## Automated Remediation Script
 
-Alternately, once you have checked the user permissions you can run the assess and remediate script, which automate the detection and remediation of Automation Accounts in your chosen subscriptions. Script details below. 
+Alternately, once you have checked the user permissions you can run the assess and remediate script, which automate the detection and remediation of Automation Accounts in your chosen subscriptions. Script is located in the same folder as this file and can also access directly from [here](https://github.com/microsoft/aad-app-credential-tools/blob/main/azure-automation/CVE-2021-42306-AutomationAssessAndMitigate.ps1). 
 
 ### Details
 This script will assess automation account which has configured RunAs accounts and checks if the corresponding AAD application is impacted or not. If it is impacted, on confirmation it will renew the key credentials of Azure-AD App by deleting the older certificate(s) and uploading new self-signed certificate to the Azure-AD App, which will mitigate the issue.
