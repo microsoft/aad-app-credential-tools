@@ -13,10 +13,10 @@ This issue can be mitigated manually or by using the automated remediation scrip
 
 ## Manual Mitigation Steps   
 
-  1. Verify an appropriate user that has the required permissions to carry out the remediation steps. 
-  2. Identify a suitable time when no Automation Runbooks will be running and none are scheduled to be running at which to run the remediation.  
-  3. Identify any impacted Automation Accounts, and those which use 3rd party/customer certificates. 
-  4. If there is no suitable time when no runbooks are running to do the remediation, then note the running jobs at this point immediately prior to the renewal. 
+  1. Identify any impacted Automation Accounts, and those which use 3rd party/customer certificates.
+  2. Verify an appropriate user that has the required permissions to carry out the remediation steps. 
+  3. Identify a suitable time when no Automation Runbooks will be running and none are scheduled to be running at which to run the remediation.  
+  4. If there is no suitable time when no runbooks are running to do the remediation, then list down the running jobs at this point immediately prior to the renewal. 
   5. Renew the Automation Run As Accounts of any impacted Automation Accounts. 
   6. Import the new certificates to the Hybrid Runbook Workers (HRWs) which use Run As Account authentication. 
   7. Confirm that any jobs running when the renewal took place are now complete and delete the old certificate from the Azure Active Directory(AD) Application. 
