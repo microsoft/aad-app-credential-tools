@@ -41,7 +41,6 @@ We recommend importing the module each time you run it, to make sure you are wor
 
 | Module option                              | Sample request |
 | -------------------------------------------- | -------------------------------------------- |
-|<img width=300/>|<img width=500/>|
 | Install module|`Install-Module -Name AffectedKeyCredentials`|
 | Import module|`Import-Module AffectedKeyCredentials.psm1 [-Force]`|
 | Scan a single application (by appId)|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application -AppId 1e918ef4-00b2-45c7-897f-e5fc097709bd`|
@@ -56,6 +55,7 @@ We recommend importing the module each time you run it, to make sure you are wor
 | Scan with a SkipTokenURL|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal -SkipTokenUrl 'https://graph.microsoft.com/beta/myorganizationserviceprincipals?$skiptoken=RFNwdAIAAQAAADVTZXJ2aWNlUHJpbmNpcGFsXzUxNTdhNWYxLTVmZDItNDE5Ny1hNWNkLTkyOTY5Y2M5OTBjNTVTZXJ2aWNlUHJpbmNpcGFsXzUxNTdhNWYxLTVmZDItNDE5Ny1hNWNkLTkyOTY5Y2M5OTBjNQAAAAAAAAAAAAAA'`|
 | Scan with extended schema|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application -ExtendedOutputSchema`|
 | Scan in Verbose mode (extra console logging for troubleshooting)|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal -Verbose`|
+|<img width=300/>|<img width=500/>|
 
 ## Additional info
 
