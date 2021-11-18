@@ -48,10 +48,10 @@ We recommend importing the module each time you run it, to make sure you are wor
 | Scan a single application (by objectId)|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application -ObjectId a8b9d4d4-5a21-497e-917b-4f6b0833456f`|
 | Scan a single service principal (by appPrincipalId)|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal -AppId1e918ef4-00b2-45c7-897f-e5fc097709bd`|
 | Scan a single service principal (by objectId)|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal -ObjectId a8b9d4d4-5a21-497e-917b-4f6b0833456f`|
-| Scan all application|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application`|
-| Scan all service principals|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal`|
-| Scan all applications and store as .csv|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application \| export-csv -Path 'outputFilePath/outputFile.csv'-NoTypeInformation`|
-| Scan all applications and store as .json|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application \| ConvertTo-Json \| Out-File 'outputFilePath/outputFilejson'`|
+| Scan all application|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application -ScanAll`|
+| Scan all service principals|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal -ScanAll`|
+| Scan all applications and store as .csv|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application -ScanAll \| export-csv -Path 'outputFilePath/outputFile.csv'-NoTypeInformation`|
+| Scan all applications and store as .json|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application -ScanAll \| ConvertTo-Json \| Out-File 'outputFilePath/outputFilejson'`|
 | Scan in other cloud environments|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal -Env 'AzureUSGovernment'`|
 | Scan with a SkipTokenURL|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass ServicePrincipal -SkipTokenUrl 'https://graph.microsoft.com/beta/myorganizationserviceprincipals?$skiptoken=RFNwdAIAAQAAADVTZXJ2aWNlUHJpbmNpcGFsXzUxNTdhNWYxLTVmZDItNDE5Ny1hNWNkLTkyOTY5Y2M5OTBjNTVTZXJ2aWNlUHJpbmNpcGFsXzUxNTdhNWYxLTVmZDItNDE5Ny1hNWNkLTkyOTY5Y2M5OTBjNQAAAAAAAAAAAAAA'`|
 | Scan with extended schema|`Get-AffectedKeyCredentials -TenantId 714f1975-81e3-4d98-9cb9-c602b0d0d3c8 -ObjectClass Application -ExtendedOutputSchema`|
