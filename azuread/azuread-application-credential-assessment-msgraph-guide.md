@@ -3,7 +3,8 @@
 You can use MS Graph application and service principal APIs to get the application or service principal resources that need to be assessed. The keyCredential object in the application api has a new property ‘hasExtendedValue’ which indicates the need to rotate the credential. The following points are crucial to conducting an accurate assessment for your applications.
 
 - The call to get an application or service principal requires the use of **`$select`** query parameter to get accurate result for the **`hasExtendedValue`** property.
-- If the APIs are called without the query parameters, the property 'hasExtendedValue' will default to null and should not be interpreted as a false.
+- If the APIs are called without the query parameters, the property `hasExtendedValue` will default to null and should not be interpreted as a false.
+- For a given credential if the value of `hasExtendedValue` is true, it signifies the presence of private key data and that keyCredential must be rotated.
 - The property is available only in the MS Graph beta endpoint.
 - This new property will not be part of the MS Graph beta schema.
 
@@ -13,7 +14,7 @@ Here are the details of the request and sample response:
 
 **Method**: GET
 
-**Application/Service Principal api**: 
+**Application/Service Principal api**:
 
 `https://graph.microsoft.com/beta/applications/{id}?$select=keyCredentials` **or**
 
