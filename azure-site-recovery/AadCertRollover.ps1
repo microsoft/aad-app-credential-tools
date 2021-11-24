@@ -566,7 +566,7 @@ function PerformCertImportExportActions($aadAppId, $certName, $certThumbprintNam
 	 
 		$newPFXCertLocation = "$UpdateCertsDir\applianceCert_$certName.pfx"       
 		[System.IO.File]::WriteAllBytes($newPFXCertLocation , $protectedCertificateBytes)
-		Import-PFXCertificate -CertStoreLocation Cert:\localmachine\My –Exportable -FilePath $newPFXCertLocation
+		Import-PFXCertificate -CertStoreLocation Cert:\localmachine\My -Exportable -FilePath $newPFXCertLocation
 			
 		if (!$global:IsCertRollOverComplete -or 
 		    $certName -eq "$global:DiscoveryAuthCertName")
