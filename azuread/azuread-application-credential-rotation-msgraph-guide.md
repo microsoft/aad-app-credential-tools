@@ -1,4 +1,4 @@
-# Application credential rotation using MS Graph API
+# Application credential rotation using Microsoft Graph API
 
 **Artifacts**
 
@@ -130,10 +130,10 @@ PATCH body:
 
 5. Repeat steps 1-4 for Service Principal object(s) associated with the above application.
 
-6. Use the AAD key cred scanner PowerShell module or MS Graph API to ensure your newly added credential does not contain any private key information.
+6. Use the AAD key cred scanner PowerShell module or Microsoft Graph API to ensure your newly added credential does not contain any private key information.
 
 7. Review the guidance under [Credential Review](credentials-review.md) document.
 
 > [!Note]
-> You can also achieve the desired key rotation results by following the steps described above by using [MS Graph PowerShell modules](https://docs.microsoft.com/en-us/graph/powershell/installation?context=graph%2Fapi%2F1.0&view=graph-rest-1.0).
+> You can also achieve the desired key rotation results by following the steps described above by using [Microsoft Graph PowerShell modules](https://docs.microsoft.com/en-us/graph/powershell/installation?context=graph%2Fapi%2F1.0&view=graph-rest-1.0).
 

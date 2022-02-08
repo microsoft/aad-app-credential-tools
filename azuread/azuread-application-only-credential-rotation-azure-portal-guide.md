@@ -1,8 +1,8 @@
-# Azure portal (does not work for Service principal)
+# Azure portal (does not work for Service principalS)
 
 > [!Note]
 > This option should only be used for application object credential rotation and does not work for Service principal credential rotation.
-> To manage credentials on service principal object(s), you must use MS Graph API, MS Graph PowerShell modules or the Azure AD toolkit.
+> To manage credentials on service principal object(s), you must use Microsoft Graph API, Microsoft Graph PowerShell modules or the Azure AD toolkit.
 
 **(a)** Navigate to Azure Portal and switch to the relevant directory.
 
