@@ -1,7 +1,7 @@
-# KeyCredential assessment PowerShell module for MS Graph API
+# KeyCredential assessment PowerShell module for Microsoft Graph API
 
 Run the Azure AD App credential key scanner PowerShell module to find out if credential(s) of an application or service principal need to be rotated.
-This module calls the MS Graph application API and reads the `hasExtendedValue` property as described in the '**Use MS Graph API**' assessment section.
+This module calls the Microsoft Graph application API and reads the **hasExtendedValue** property as described in the '**Use Microsoft Graph API**' assessment section.
 
 We recommend importing the module each time you run it, to make sure you are working with the latest version of the script.
 
@@ -31,9 +31,9 @@ We recommend importing the module each time you run it, to make sure you are wor
 
 | **Parameter** |**Description**|
 |---|---|
-|-PageSize| The size of each page returned per MS graph request (aka the value for $top. 200 by default).|
-|-SleepInterval| The sleep duration in seconds between the paginated MS graph requests (2 by default).|
-|-MaxRetryLimit| The maximum number of retries if MS Graph returns 429. (3 by default).|
+|-PageSize| The size of each page returned per Microsoft Graph request (aka the value for $top. 200 by default).|
+|-SleepInterval| The sleep duration in seconds between the paginated Microsoft Graph requests (2 by default).|
+|-MaxRetryLimit| The maximum number of retries if Microsoft Graph returns `429 Too Many Requests` error code. (3 by default).|
 |-MaxPageSize| The maximum limit for PageSize (500 by default).|
 |<img width=200/>|<img width=500/>|
 

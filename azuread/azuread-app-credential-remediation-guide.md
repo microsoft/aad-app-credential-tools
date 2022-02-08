@@ -6,12 +6,12 @@ Guidance in this document applies only in relation to the mitigation steps neces
 
 ## Assessment
 
-There are a few ways by which you can find if the credential(s) on your application or service principal need to be rotated.
+There are a few ways to assess whether the credential(s) on your application or service principal need to be rotated.
 
 | **Assessment method**                             | **Credential assessment guide**                                                                                   |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| KeyCredential assessment using MS Graph API  (recommended)               | [Application credential assessment using MS Graph API](azuread-application-credential-assessment-msgraph-guide.md)                   |
-| KeyCredential assessment PowerShell module for MS Graph API               | [Application credential assessment PowerShell module](azuread-application-credential-assessment-powershell-guide.md)                   |
+| KeyCredential assessment using Microsoft Graph API  (recommended)               | [Application credential assessment using Microsoft Graph API](azuread-application-credential-assessment-msgraph-guide.md)                   |
+| KeyCredential assessment PowerShell module for Microsoft Graph API               | [Application credential assessment PowerShell module](azuread-application-credential-assessment-powershell-guide.md)                   |
 | Azure Sentinel (license required)                | [Application credential assessment using Azure Sentinel notebook](azuread-application-credential-assessment-sentinel-guide.md)                   |
 
 ## Remediation
@@ -24,6 +24,6 @@ If the credential that needs to be rotated is expired, you can skip the steps to
 | **Rotation method**                             | **Credential rotation guide**                                                                                   |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | Azure AD Toolkit for applications and service principals (recommended)               | [Application credential rotation using Azure AD Toolkit](azuread-application-credential-rotation-azuread-toolkit-guide.md)                   |
-| MS Graph application and service principal APIs                 | [Application credential rotation using MS Graph API](azuread-application-credential-rotation-msgraph-guide.md)                   |
+| Microsoft Graph application and service principal APIs                 | [Application credential rotation using Microsoft Graph API](azuread-application-credential-rotation-msgraph-guide.md)                   |
 | Azure portal (for application object only)                 | [Application only credential rotation using Azure portal](azuread-application-only-credential-rotation-azure-portal-guide.md)                   |
 
